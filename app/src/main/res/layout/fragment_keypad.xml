@@ -15,111 +15,82 @@
         android:textColor="@color/text_color"
         android:textSize="@dimen/menu_text_size" />
 
-    <GridLayout
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:orientation="vertical"
+        android:stretchColumns="*">
 
-        <Button
-            android:id="@+id/n1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="0"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="1" />
+        <TableRow>
 
-        <Button
-            android:id="@+id/n2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="0"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="2" />
+            <Button
+                android:id="@+id/keypad_1"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="1"></Button>
 
-        <Button
-            android:id="@+id/n3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="0"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="3" />
+            <Button
+                android:id="@+id/keypad_2"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="2"></Button>
 
-        <Button
-            android:id="@+id/n4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="1"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="4" />
+            <Button
+                android:id="@+id/keypad_3"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="3"></Button>
+        </TableRow>
 
-        <Button
-            android:id="@+id/n5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="1"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="5" />
+        <TableRow>
 
-        <Button
-            android:id="@+id/n6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="1"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="6" />
+            <Button
+                android:id="@+id/keypad_4"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="4"></Button>
 
-        <Button
-            android:id="@+id/n7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="2"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="7" />
+            <Button
+                android:id="@+id/keypad_5"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="5"></Button>
 
-        <Button
-            android:id="@+id/n8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="2"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="8" />
+            <Button
+                android:id="@+id/keypad_6"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="6"></Button>
+        </TableRow>
 
-        <Button
-            android:id="@+id/n9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:layout_row="2"
-            android:background="@drawable/button"
-            android:padding="@dimen/menu_button_padding"
-            android:text="9" />
+        <TableRow>
 
-    </GridLayout>
+            <Button
+                android:id="@+id/keypad_7"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="7"></Button>
 
+            <Button
+                android:id="@+id/keypad_8"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="8"></Button>
 
+            <Button
+                android:id="@+id/keypad_9"
+                android:layout_margin="@dimen/menu_button_margin"
+                android:background="@drawable/button"
+                android:padding="@dimen/menu_button_padding"
+                android:text="9"></Button>
+        </TableRow>
+    </TableLayout>
 </LinearLayout>
