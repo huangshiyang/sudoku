@@ -34,6 +34,10 @@ public class MainFragment extends Fragment {
         View newButton = rootView.findViewById(R.id.new_button);
         View aboutButton = rootView.findViewById(R.id.about_button);
         View exitButton = rootView.findViewById(R.id.exit_button);
+        View easyButton = popupView.findViewById(R.id.easy_button);
+        View mediumButton = popupView.findViewById(R.id.medium_button);
+        View hardButton = popupView.findViewById(R.id.hard_button);
+
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +68,27 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 android.os.Process.killProcess(android.os.Process.myPid());
                 System.exit(0);
+            }
+        });
+        easyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GameActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        mediumButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GameActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+        hardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), GameActivity.class);
+                getActivity().startActivity(intent);
             }
         });
         return rootView;
