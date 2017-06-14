@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Sudoku</string>
+    <string name="long_app_name">Android Sudoku</string>
+    <string name="continue_label">Continue</string>
+    <string name="new_game_label">New Game</string>
+    <string name="about_label">About</string>
+    <string name="exit_label">Exit</string>
+    <string name="hard_label">Hard</string>
+    <string name="medium_label">Medium</string>
+    <string name="easy_label">Easy</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="keypad">Keypad</string>
+    <string name="about_title">About Sudoku</string>
+    <string name="about_text">
+\ something here.
+</string>
+    <string name="ok_label">OK</string>
+</resources>

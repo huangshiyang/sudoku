@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_background_color">#003535</color>
+    <color name="border_color">#7f7f7f</color>
+    <color name="title_color">#bbbbbb</color>
+    <color name="button_color">#cfcfcf</color>
+    <color name="difficulty_button_color">#ffffff</color>
+    <color name="text_color">#ffffff</color>
+    <color name="black_background_color">#000000</color>
+    <color name="blue_color">#e6f0ff</color>
+    <color name="light_border_color">#fbfcfe</color>
+    <color name="orange_color">#f0c49b</color>
+</resources>
