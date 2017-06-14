@@ -1,0 +1,59 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="1">
+
+    <include
+        android:id="@+id/tileA"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileB"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileC"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileD"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileE"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileF"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileG"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileH"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tileI"
+        layout="@layout/row_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</GridLayout>

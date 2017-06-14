@@ -1,0 +1,47 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/tile_background"
+    android:stretchColumns="*"
+    >
+
+    <TableRow>
+
+        <ImageButton
+            android:id="@+id/tile1"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile2"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile3"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile4"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile5"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile6"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile7"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile8"
+            style="@style/TileButton" />
+
+        <ImageButton
+            android:id="@+id/tile9"
+            style="@style/TileButton" />
+    </TableRow>
+
+</TableLayout>
