@@ -31,6 +31,7 @@ public class MainFragment extends Fragment {
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
 
         final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View continueButton = rootView.findViewById(R.id.continue_button);
         View newButton = rootView.findViewById(R.id.new_button);
         View aboutButton = rootView.findViewById(R.id.about_button);
         View exitButton = rootView.findViewById(R.id.exit_button);
@@ -38,6 +39,14 @@ public class MainFragment extends Fragment {
         View mediumButton = popupView.findViewById(R.id.medium_button);
         View hardButton = popupView.findViewById(R.id.hard_button);
 
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), GameActivity.class);
+                intent.putExtra(GameActivity.KEY_RESTORE, true);
+                getActivity().startActivity(intent);
+            }
+        });
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
