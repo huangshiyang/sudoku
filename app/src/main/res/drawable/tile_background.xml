@@ -1,5 +1,5 @@
 <level-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:drawable="@drawable/tile_orange"
+        android:drawable="@drawable/tile_blue"
         android:maxLevel="0" />
 </level-list>
