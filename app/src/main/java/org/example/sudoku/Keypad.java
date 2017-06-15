@@ -3,6 +3,7 @@ package org.example.sudoku;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,19 +14,23 @@ public class Keypad extends Dialog {
     private View keypad;
 
     private final int useds[];
-    //private final PuzzleView puzzleView;
+    private final PuzzleView puzzleView;
 
-    public Keypad(Context context, int useds[]/*, PuzzleView puzzleView*/) {
+    public Keypad(Context context, int useds[], PuzzleView puzzleView) {
         super(context);
         this.useds = useds;
-        //  this.puzzleView = puzzleView;
+        this.puzzleView = puzzleView;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(R.string.keypad_title);
+        int dividerID=getContext().getResources().getIdentifier("android:id/titleDivider",null,null);
+        View divider=findViewById(dividerID);
+        divider.setBackgroundColor(Color.parseColor("#000000"));
+        View title=this.findViewById(android.R.id.title);
+        title.setVisibility(View.GONE);
         setContentView(R.layout.fragment_keypad);
         findViews();
         for (int element : useds) {
@@ -84,7 +89,7 @@ public class Keypad extends Dialog {
      * Return the chosen tile to the caller
      */
     private void returnResult(int tile) {
-        //puzzleView.setSelectedTile(tile);
+        puzzleView.setSelectedTile(tile);
         dismiss();
     }
 

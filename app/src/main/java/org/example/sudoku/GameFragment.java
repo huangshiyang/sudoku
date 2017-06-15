@@ -52,6 +52,21 @@ public class GameFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
+
+        int diff = getActivity().getIntent().getIntExtra(KEY_DIFFICULTY,
+                DIFFICULTY_EASY);
+        puzzle = getPuzzle(diff);
+        calculateUsedTiles();
+
+        puzzleView = new PuzzleView(this);
+//        puzzleView = (PuzzleView) getActivity().findViewById(R.id.puzzle_view);
+        getActivity().setContentView(puzzleView);
+        puzzleView.requestFocus();
+
+        // ...
+        // If the activity is restarted, do a continue next time
+        getActivity().getIntent().putExtra(KEY_DIFFICULTY, DIFFICULTY_CONTINUE);
     }
 
     private void initViews(View rootView) {
@@ -66,7 +81,7 @@ public class GameFragment extends Fragment {
     }
 
     public void initGame() {
-        //Log.d("Pseudoku", "init game");
+        Log.d("Pseudoku", "init game");
     }
 
     /**
@@ -183,7 +198,7 @@ public class GameFragment extends Fragment {
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         } else {
-            Dialog v = new Keypad(getContext(), tiles/*, puzzleView*/);
+            Dialog v = new Keypad(getContext(), tiles, puzzleView);
             v.show();
         }
     }

@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 
+import static org.example.sudoku.GameFragment.KEY_DIFFICULTY;
+
 
 public class MainFragment extends Fragment {
 
@@ -83,6 +85,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
+                intent.putExtra(KEY_DIFFICULTY, 0);
                 getActivity().startActivity(intent);
             }
         });
@@ -90,6 +93,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
+                intent.putExtra(KEY_DIFFICULTY, 1);
                 getActivity().startActivity(intent);
             }
         });
@@ -97,6 +101,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
+                intent.putExtra(KEY_DIFFICULTY, 2);
                 getActivity().startActivity(intent);
             }
         });
