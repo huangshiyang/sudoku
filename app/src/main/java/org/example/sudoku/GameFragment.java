@@ -2,12 +2,14 @@ package org.example.sudoku;
 
 import android.app.Dialog;
 import android.app.Fragment;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -24,6 +26,10 @@ public class GameFragment extends Fragment {
     protected static final int DIFFICULTY_CONTINUE = -1;
 
     private int puzzle[];
+
+    private final int[] rowId = {R.id.tileA, R.id.tileB, R.id.tileC, R.id.tileD, R.id.tileE, R.id.tileF, R.id.tileG, R.id.tileH, R.id.tileI};
+    private final int[] columnId = {R.id.tile1, R.id.tile2, R.id.tile3, R.id.tile4, R.id.tile5, R.id.tile6, R.id.tile7, R.id.tile8, R.id.tile9};
+    private final int[] numbers = {R.drawable.num1, R.drawable.num2, R.drawable.num3, R.drawable.num4, R.drawable.num5, R.drawable.num6, R.drawable.num7, R.drawable.num8, R.drawable.num9};
 
     private final String easyPuzzle =
             "360000000004230800000004200" +
@@ -70,6 +76,16 @@ public class GameFragment extends Fragment {
     }
 
     private void initViews(View rootView) {
+        for (int row = 0; row < 9; row++) {
+            View rowView = rootView.findViewById(rowId[row]);
+            for (int col = 0; col < 9; col++) {
+                final ImageButton button = (ImageButton) rowView.findViewById(columnId[col]);
+                int num = getTile(row, col) - 1;
+                if (num > 0) {
+                    button.setImageResource(numbers[num]);
+                }
+            }
+        }
     }
 
     private void makeMove(int large, int small) {
