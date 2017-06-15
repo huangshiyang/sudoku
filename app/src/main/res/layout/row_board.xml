@@ -9,38 +9,47 @@
 
         <ImageButton
             android:id="@+id/tile1"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile2"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile3"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile4"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile5"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile6"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile7"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile8"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
 
         <ImageButton
             android:id="@+id/tile9"
+            android:onClick="selectedTile"
             style="@style/TileButton" />
     </TableRow>
 

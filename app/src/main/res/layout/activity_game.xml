@@ -8,11 +8,11 @@
     tools:context="org.example.sudoku.GameActivity">
 
     <fragment
-        android:id="@+id/game_fragment"
+        android:id="@+id/fragment_game"
         class="org.example.sudoku.GameFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:layout="@layout/board" />
+        tools:layout="@layout/fragment_game" />
 
 </FrameLayout>

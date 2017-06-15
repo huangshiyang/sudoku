@@ -15,4 +15,6 @@
 \ something here.
 </string>
     <string name="ok_label">OK</string>
+    <string name="keypad_title">Keypad</string>
+    <string name="no_moves_label">no moves</string>
 </resources>
