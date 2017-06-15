@@ -1,59 +1,77 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:columnCount="1">
 
-    <include
-        android:id="@+id/tileA"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableRow android:id="@+id/tileA">
 
-    <include
-        android:id="@+id/tileB"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
 
-    <include
-        android:id="@+id/tileC"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableRow android:id="@+id/tileB">
 
-    <include
-        android:id="@+id/tileD"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
 
-    <include
-        android:id="@+id/tileE"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableRow android:id="@+id/tileC">
 
-    <include
-        android:id="@+id/tileF"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
 
-    <include
-        android:id="@+id/tileG"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableRow android:id="@+id/tileD">
 
-    <include
-        android:id="@+id/tileH"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
 
-    <include
-        android:id="@+id/tileI"
-        layout="@layout/row_board"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</GridLayout>
+    <TableRow android:id="@+id/tileE">
+
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow android:id="@+id/tileF">
+
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow android:id="@+id/tileG">
+
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow android:id="@+id/tileH">
+
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow android:id="@+id/tileI">
+
+        <include
+            layout="@layout/row_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+</TableLayout>
