@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewParent;
+import android.widget.TableRow;
 
 public class GameActivity extends Activity {
     public static final String KEY_RESTORE = "key_restore";
@@ -38,9 +40,14 @@ public class GameActivity extends Activity {
     }
 
     public void selectedTile(View view) {
+        ViewParent viewParent = view.getParent().getParent().getParent();
+        String viewId = view.getResources().getResourceName(view.getId());
+        String viewParentId = view.getResources().getResourceName(((TableRow) viewParent).getId());
         Log.d("GameActivity", "Yo!");
         GameFragment fragment = (GameFragment) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
-        fragment.showKeypadOrError(1, 1);
+        int x = viewId.charAt(26) - '1';
+        int y = viewParentId.charAt(26) - 'A';
+        fragment.showKeypadOrError(x, y);
     }
 }
