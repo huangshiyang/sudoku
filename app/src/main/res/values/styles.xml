@@ -12,5 +12,6 @@
         <item name="android:padding">@dimen/tile_padding</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:src">@drawable/tile</item>
+        <item name="android:onClick">selectedTile</item>
     </style>
 </resources>
