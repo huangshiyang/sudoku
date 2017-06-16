@@ -40,14 +40,15 @@ public class GameActivity extends Activity {
     }
 
     public void selectedTile(View view) {
-        ViewParent viewParent = view.getParent().getParent().getParent();
+        ViewParent rowView = view.getParent().getParent().getParent();
         String viewId = view.getResources().getResourceName(view.getId());
-        String viewParentId = view.getResources().getResourceName(((TableRow) viewParent).getId());
+        String viewParentId = view.getResources().getResourceName(((TableRow) rowView).getId());
         Log.d("GameActivity", "Yo!");
         GameFragment fragment = (GameFragment) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
         int x = viewId.charAt(26) - '1';
         int y = viewParentId.charAt(26) - 'A';
         fragment.showKeypadOrError(x, y);
+        fragment.updateBoard(view);
     }
 }

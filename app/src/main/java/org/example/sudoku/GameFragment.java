@@ -66,7 +66,6 @@ public class GameFragment extends Fragment {
         calculateUsedTiles();
 
         puzzleView = new PuzzleView(this);
-//        puzzleView = (PuzzleView) getActivity().findViewById(R.id.puzzle_view);
         getActivity().setContentView(puzzleView);
         puzzleView.requestFocus();
 
@@ -80,15 +79,13 @@ public class GameFragment extends Fragment {
             View rowView = rootView.findViewById(rowId[row]);
             for (int col = 0; col < 9; col++) {
                 final ImageButton button = (ImageButton) rowView.findViewById(columnId[col]);
-                int num = getTile(row, col) - 1;
+                int num = getTile(col, row) - 1;
                 if (num > 0) {
                     button.setImageResource(numbers[num]);
+                    button.setClickable(false);
                 }
             }
         }
-    }
-
-    private void makeMove(int large, int small) {
     }
 
     public void restartGame() {
@@ -290,5 +287,20 @@ public class GameFragment extends Fragment {
                 c1[nused++] = t;
         }
         return c1;
+    }
+
+    public void updateBoard(View view) {
+        View rootView = view.getRootView();
+        for (int row = 0; row < 9; row++) {
+            View rowView = rootView.findViewById(rowId[row]);
+            for (int col = 0; col < 9; col++) {
+                final ImageButton button = (ImageButton) rowView.findViewById(columnId[col]);
+                int num = getTile(col, row) - 1;
+                if (num > 0) {
+                    button.setImageResource(numbers[num]);
+                    button.setClickable(false);
+                }
+            }
+        }
     }
 }
