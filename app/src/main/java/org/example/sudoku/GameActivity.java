@@ -24,6 +24,7 @@ public class GameActivity extends Activity {
         if (restore == -1) {
             gameData = getPreferences(MODE_PRIVATE)
                     .getString(PREF_RESTORE, null);
+
         }
     }
 
@@ -53,6 +54,5 @@ public class GameActivity extends Activity {
         return getPreferences(MODE_PRIVATE)
                 .getString(PREF_RESTORE, null);
     }
-
 
 }
