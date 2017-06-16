@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import static android.R.attr.value;
+import static android.R.attr.x;
+import static android.R.attr.y;
+import static org.example.sudoku.GameActivity.KEY_RESTORE;
 import static org.example.sudoku.GameActivity.PREF_RESTORE;
 
 public class GameFragment extends Fragment {
@@ -58,7 +62,7 @@ public class GameFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
 
-        int diff = getActivity().getIntent().getIntExtra(KEY_DIFFICULTY,
+        int diff = getActivity().getIntent().getIntExtra(KEY_RESTORE,
                 -1);
         puzzle = getPuzzle(diff);
         calculateUsedTiles();
@@ -135,6 +139,7 @@ public class GameFragment extends Fragment {
 
         return fromPuzzleString(puz);
     }
+
 
     /**
      * Convert an array into a puzzle string
