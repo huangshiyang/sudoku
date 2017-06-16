@@ -69,6 +69,7 @@ public class PuzzleView extends View {
 
     public void setSelectedTile(int tile) {
         if (game.setTileIfValid(selX, selY, tile)) {
+            Log.d(TAG, "selected " + selX + " " + selY);
             invalidate();// may change hints
         } else {
             // Number is not valid for this tile
@@ -87,6 +88,14 @@ public class PuzzleView extends View {
     private void getRect(int x, int y, Rect rect) {
         rect.set((int) (x * width), (int) (y * height), (int) (x
                 * width + width), (int) (y * height + height));
+    }
+
+    public void setSelX(int x) {
+        selX = x;
+    }
+
+    public void setSelY(int y) {
+        selY = y;
     }
 
 }

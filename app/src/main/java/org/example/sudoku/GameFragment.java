@@ -211,6 +211,8 @@ public class GameFragment extends Fragment {
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         } else {
+            puzzleView.setSelX(x);
+            puzzleView.setSelY(y);
             Dialog v = new Keypad(getContext(), tiles, puzzleView);
             v.show();
         }
@@ -235,8 +237,8 @@ public class GameFragment extends Fragment {
         for (int x = 0; x < 9; x++) {
             for (int y = 0; y < 9; y++) {
                 used[x][y] = calculateUsedTiles(x, y);
-                // Log.d(TAG, "used[" + x + "][" + y + "] = "
-                // + toPuzzleString(used[x][y]));
+             //   Log.d(TAG, "used[" + x + "][" + y + "] = "
+              //          + toPuzzleString(used[x][y]));
             }
         }
     }
