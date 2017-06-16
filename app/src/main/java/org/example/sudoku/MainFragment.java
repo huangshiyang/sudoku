@@ -85,6 +85,7 @@ public class MainFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
                 intent.putExtra(KEY_DIFFICULTY, 0);
                 getActivity().startActivity(intent);
+                mPopupWindow.dismiss();
             }
         });
         mediumButton.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +94,7 @@ public class MainFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
                 intent.putExtra(KEY_DIFFICULTY, 1);
                 getActivity().startActivity(intent);
+                mPopupWindow.dismiss();
             }
         });
         hardButton.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +103,7 @@ public class MainFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
                 intent.putExtra(KEY_DIFFICULTY, 2);
                 getActivity().startActivity(intent);
+                mPopupWindow.dismiss();
             }
         });
         return rootView;

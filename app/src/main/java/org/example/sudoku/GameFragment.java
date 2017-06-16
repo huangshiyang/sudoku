@@ -18,7 +18,6 @@ public class GameFragment extends Fragment {
 
     public static final String KEY_DIFFICULTY =
             "org.example.sudoku.difficulty";
-    private static final String PREF_PUZZLE = "puzzle";
     public static final int DIFFICULTY_EASY = 0;
     public static final int DIFFICULTY_MEDIUM = 1;
     public static final int DIFFICULTY_HARD = 2;
@@ -127,7 +126,7 @@ public class GameFragment extends Fragment {
                 puz = easyPuzzle;
                 break;
             case DIFFICULTY_CONTINUE:
-                puz = ((GameActivity)getActivity()).getContinue();
+                puz = ((GameActivity) getActivity()).getContinue();
                 break;
             default:
                 break;
