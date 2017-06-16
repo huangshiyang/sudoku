@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import static android.R.attr.value;
+import static android.R.attr.x;
+import static android.R.attr.y;
+
 public class GameFragment extends Fragment {
     private static final String TAG = "Pseudoku";
 
@@ -22,7 +26,9 @@ public class GameFragment extends Fragment {
     public static final int DIFFICULTY_HARD = 2;
     protected static final int DIFFICULTY_CONTINUE = -1;
 
-    private int puzzle[];
+    private int[] puzzle = new int[81];
+    private int init;
+    private int[] initPuzzle = new int[81];
 
     private final int[] rowId = {R.id.tileA, R.id.tileB, R.id.tileC, R.id.tileD, R.id.tileE, R.id.tileF, R.id.tileG, R.id.tileH, R.id.tileI};
     private final int[] columnId = {R.id.tile1, R.id.tile2, R.id.tile3, R.id.tile4, R.id.tile5, R.id.tile6, R.id.tile7, R.id.tile8, R.id.tile9};
@@ -44,15 +50,6 @@ public class GameFragment extends Fragment {
     private PuzzleView puzzleView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView =
-                inflater.inflate(R.layout.board, container, false);
-        initViews(rootView);
-        return rootView;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
@@ -66,9 +63,16 @@ public class GameFragment extends Fragment {
         getActivity().setContentView(puzzleView);
         puzzleView.requestFocus();
 
-        // ...
-        // If the activity is restarted, do a continue next time
         getActivity().getIntent().putExtra(KEY_DIFFICULTY, DIFFICULTY_CONTINUE);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView =
+                inflater.inflate(R.layout.board, container, false);
+        initViews(rootView);
+        return rootView;
     }
 
     private void initViews(View rootView) {
@@ -77,22 +81,20 @@ public class GameFragment extends Fragment {
             for (int col = 0; col < 9; col++) {
                 final ImageButton button = (ImageButton) rowView.findViewById(columnId[col]);
                 int num = getTile(col, row) - 1;
+                int order = 9 * row + col;
                 if (num >= 0) {
                     button.setImageResource(numbers[num]);
+                }
+                if (puzzle[order] == initPuzzle[9 * row + col] && num >= 0) {
                     button.setClickable(false);
+                }
+                if (puzzle[order] != initPuzzle[order] && puzzle[order] > 0) {
+                    button.setImageAlpha(90);
                 }
             }
         }
     }
 
-    public void restartGame() {
-        initGame();
-        initViews(getView());
-    }
-
-    public void initGame() {
-        Log.d("Pseudoku", "init game");
-    }
 
     /**
      * Create a string containing the state of the game.
@@ -108,6 +110,11 @@ public class GameFragment extends Fragment {
         puzzle = fromPuzzleString(hardPuzzle);
     }
 
+    public int getInit() {
+        return init;
+    }
+
+
     /**
      * Given a difficulty level, come up with a new puzzle
      */
@@ -117,15 +124,32 @@ public class GameFragment extends Fragment {
 
             case DIFFICULTY_HARD:
                 puz = hardPuzzle;
+                initPuzzle = fromPuzzleString(hardPuzzle);
+                init = 2;
                 break;
             case DIFFICULTY_MEDIUM:
                 puz = mediumPuzzle;
+                initPuzzle = fromPuzzleString(mediumPuzzle);
+                init = 1;
                 break;
             case DIFFICULTY_EASY:
                 puz = easyPuzzle;
+                initPuzzle = fromPuzzleString(easyPuzzle);
+                init = 0;
                 break;
             case DIFFICULTY_CONTINUE:
                 puz = ((GameActivity) getActivity()).getContinue();
+                init = ((GameActivity) getActivity()).getInit();
+                if (init == 0) {
+                    initPuzzle = fromPuzzleString(easyPuzzle);
+                }
+                if (init == 1) {
+                    initPuzzle = fromPuzzleString(mediumPuzzle);
+                }
+                if (init == 2) {
+                    initPuzzle = fromPuzzleString(hardPuzzle);
+                }
+                //compare();
                 break;
             default:
                 break;
