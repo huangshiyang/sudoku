@@ -2,8 +2,6 @@ package org.example.sudoku;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -45,7 +43,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), GameActivity.class);
-                intent.putExtra(GameActivity.KEY_RESTORE, true);
+                intent.putExtra(GameActivity.KEY_RESTORE, -1);
                 getActivity().startActivity(intent);
             }
         });

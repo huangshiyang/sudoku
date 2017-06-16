@@ -11,6 +11,7 @@ public class GameActivity extends Activity {
     public static final String KEY_RESTORE = "key_restore";
     public static final String PREF_RESTORE = "pref_restore";
     private GameFragment mGameFragment;
+    private String gameData = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +20,9 @@ public class GameActivity extends Activity {
         // Restore game here...
         mGameFragment = (GameFragment) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
-        boolean restore = getIntent().getBooleanExtra(KEY_RESTORE, false);
-        if (restore) {
-            String gameData = getPreferences(MODE_PRIVATE)
+        int restore = getIntent().getIntExtra(KEY_RESTORE, 0);
+        if (restore == -1) {
+            gameData = getPreferences(MODE_PRIVATE)
                     .getString(PREF_RESTORE, null);
             if (gameData != null) {
                 mGameFragment.putState(gameData);
@@ -32,7 +33,7 @@ public class GameActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        String gameData = mGameFragment.getState();
+        gameData = mGameFragment.getState();
         getPreferences(MODE_PRIVATE).edit()
                 .putString(PREF_RESTORE, gameData)
                 .commit();
@@ -50,4 +51,10 @@ public class GameActivity extends Activity {
         int y = viewParentId.charAt(26) - 'A';
         fragment.showKeypadOrError(x, y);
     }
+
+    public String getContinue() {
+        return getPreferences(MODE_PRIVATE)
+                .getString(PREF_RESTORE, null);
+    }
+
 }

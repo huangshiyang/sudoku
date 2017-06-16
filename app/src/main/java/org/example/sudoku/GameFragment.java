@@ -2,7 +2,6 @@ package org.example.sudoku;
 
 import android.app.Dialog;
 import android.app.Fragment;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import static android.content.Context.MODE_PRIVATE;
+import static org.example.sudoku.GameActivity.PREF_RESTORE;
 
 public class GameFragment extends Fragment {
     private static final String TAG = "Pseudoku";
@@ -61,7 +60,7 @@ public class GameFragment extends Fragment {
         Log.d(TAG, "onCreate");
 
         int diff = getActivity().getIntent().getIntExtra(KEY_DIFFICULTY,
-                DIFFICULTY_EASY);
+                -1);
         puzzle = getPuzzle(diff);
         calculateUsedTiles();
 
@@ -101,27 +100,23 @@ public class GameFragment extends Fragment {
      * Create a string containing the state of the game.
      */
     public String getState() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("In some state or other.");
-        return builder.toString();
+        return toPuzzleString(puzzle);
     }
 
     /**
      * Restore the state of the game from the given string.
      */
     public void putState(String gameData) {
+        puzzle = fromPuzzleString(hardPuzzle);
     }
 
     /**
      * Given a difficulty level, come up with a new puzzle
      */
     private int[] getPuzzle(int diff) {
-        String puz;
+        String puz = null;
         switch (diff) {
-            case DIFFICULTY_CONTINUE:
-                puz = getActivity().getPreferences(MODE_PRIVATE).getString(PREF_PUZZLE, easyPuzzle);
-                break;
-            // ...
+
             case DIFFICULTY_HARD:
                 puz = hardPuzzle;
                 break;
@@ -129,9 +124,14 @@ public class GameFragment extends Fragment {
                 puz = mediumPuzzle;
                 break;
             case DIFFICULTY_EASY:
-            default:
                 puz = easyPuzzle;
                 break;
+            case DIFFICULTY_CONTINUE:
+                puz = ((GameActivity)getActivity()).getContinue();
+                break;
+            default:
+                break;
+
         }
 
         return fromPuzzleString(puz);
@@ -295,4 +295,5 @@ public class GameFragment extends Fragment {
         }
         return c1;
     }
+
 }
