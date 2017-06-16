@@ -49,6 +49,5 @@ public class GameActivity extends Activity {
         int x = viewId.charAt(26) - '1';
         int y = viewParentId.charAt(26) - 'A';
         fragment.showKeypadOrError(x, y);
-        fragment.updateBoard(view);
     }
 }

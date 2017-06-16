@@ -80,7 +80,7 @@ public class GameFragment extends Fragment {
             for (int col = 0; col < 9; col++) {
                 final ImageButton button = (ImageButton) rowView.findViewById(columnId[col]);
                 int num = getTile(col, row) - 1;
-                if (num > 0) {
+                if (num >= 0) {
                     button.setImageResource(numbers[num]);
                     button.setClickable(false);
                 }
@@ -196,6 +196,11 @@ public class GameFragment extends Fragment {
             }
         }
         setTile(x, y, value);
+        View rootView = getView();
+        View rowView = rootView.findViewById(rowId[y]);
+        ImageButton button = (ImageButton) rowView.findViewById(columnId[x]);
+        button.setImageResource(numbers[value - 1]);
+        button.setImageAlpha(90);
         calculateUsedTiles();
         return true;
     }
@@ -237,8 +242,8 @@ public class GameFragment extends Fragment {
         for (int x = 0; x < 9; x++) {
             for (int y = 0; y < 9; y++) {
                 used[x][y] = calculateUsedTiles(x, y);
-             //   Log.d(TAG, "used[" + x + "][" + y + "] = "
-              //          + toPuzzleString(used[x][y]));
+                //   Log.d(TAG, "used[" + x + "][" + y + "] = "
+                //          + toPuzzleString(used[x][y]));
             }
         }
     }
@@ -289,20 +294,5 @@ public class GameFragment extends Fragment {
                 c1[nused++] = t;
         }
         return c1;
-    }
-
-    public void updateBoard(View view) {
-        View rootView = view.getRootView();
-        for (int row = 0; row < 9; row++) {
-            View rowView = rootView.findViewById(rowId[row]);
-            for (int col = 0; col < 9; col++) {
-                final ImageButton button = (ImageButton) rowView.findViewById(columnId[col]);
-                int num = getTile(col, row) - 1;
-                if (num > 0) {
-                    button.setImageResource(numbers[num]);
-                    button.setClickable(false);
-                }
-            }
-        }
     }
 }
